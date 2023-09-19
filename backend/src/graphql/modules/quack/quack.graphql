@@ -1,0 +1,16 @@
+extend type Query {
+  quacks: [Quack!]!
+}
+
+extend type Mutation {
+  addQuack(userId: Int!, text: String!): Quack!
+  deleteQuack(quackId: Int!): String!
+}
+
+type Quack {
+  id: Int!
+  createdAt: String!
+  user: User!
+  userId: Int!
+  text: String!
+}

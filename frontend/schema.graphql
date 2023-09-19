@@ -1,0 +1,48 @@
+type AuthInfo {
+  token: String!
+  user: AuthUser!
+}
+
+type AuthUser {
+  id: Int!
+  name: String!
+  profileImageUrl: String
+  userName: String!
+}
+
+type Mutation {
+  _empty(nothing: String): String
+  addQuack(text: String!, userId: Int!): Quack!
+  deleteQuack(quackId: Int!): String!
+  signIn(email: String!, password: String!): AuthInfo!
+  signUp(
+    email: String!
+    name: String!
+    password: String!
+    profileImageUrl: String
+    userName: String!
+  ): AuthInfo!
+}
+
+type Quack {
+  createdAt: String!
+  id: Int!
+  text: String!
+  user: User!
+  userId: Int!
+}
+
+type Query {
+  _empty: String
+  quacks: [Quack!]!
+  user(userName: String!): User
+  users: [User!]!
+}
+
+type User {
+  id: Int!
+  name: String!
+  profileImageUrl: String
+  quacks: [Quack!]!
+  userName: String!
+}
