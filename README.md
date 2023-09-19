@@ -45,4 +45,4 @@ New JavaScript features (ES2015+) are "enabled" for all modern browsers with [Ba
 
 ### Domains
 
-- [dev.frontend.**username**.vse.handson.pro](http://dev.frontend.username.vse.handson.pro)
+- [dev-frontend-**username**-vse.handson.pro](http://dev-frontend-username-vse.handson.pro)
