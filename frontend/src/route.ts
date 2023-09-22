@@ -1,4 +1,4 @@
-import { Practical01Page } from 'src/modules/static-pages';
+import { Practical01Page, Practical02Page } from 'src/modules/static-pages';
 
 export const route = {
   home: () => `/`,
@@ -12,4 +12,5 @@ export const route = {
 export const PRACTICALS = [
   // Practical pages
   { id: '01', PageComponent: Practical01Page },
+  { id: '02', PageComponent: Practical02Page },
 ];
