@@ -1,29 +1,50 @@
+import { useState } from 'react';
+
 import { useTodoList } from 'src/modules/todo/hooks';
-import { Box, Button, Heading, Input } from 'src/shared/design-system';
+import { AddTodoListItemForm, TodoList } from 'src/modules/todo/organisms';
+import {
+  Box,
+  Button,
+  Heading,
+  Input,
+  Stack,
+  Tab,
+  TabList,
+  Tabs,
+} from 'src/shared/design-system';
+
+const STATES = ['all', 'completed', 'not-completed'] as const;
 
 export function Practical02Page() {
-  const { items } = useTodoList();
+  const { items, addItem, setItemIsCompleted, removeItem } = useTodoList();
+  const [filter, setFilter] = useState<(typeof STATES)[number]>(STATES[0]);
 
   return (
-    <Box>
+    <Stack>
       <Heading>Practical 02</Heading>
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-        }}
+      <AddTodoListItemForm addItem={addItem} />
+      <Tabs
+        index={STATES.indexOf(filter)}
+        onChange={(index) => setFilter(STATES[index])}
+        variant="soft-rounded"
+        colorScheme="blue"
+        my="4"
       >
-        <Input type="text" placeholder="What shell to be done?" />
-        <Button type="submit">Add</Button>
-      </form>
-      <ul>
-        {items.map((item) => (
-          <li key={item.id}>
-            <label>
-              <input type="checkbox" /> {item.description}
-            </label>
-          </li>
-        ))}
-      </ul>
-    </Box>
+        <TabList>
+          <Tab>All</Tab>
+          <Tab>Completed</Tab>
+          <Tab>Not completed</Tab>
+        </TabList>
+      </Tabs>
+      <TodoList
+        items={items.filter((item) => {
+          if (filter === 'completed') return item.isCompleted;
+          if (filter === 'not-completed') return !item.isCompleted;
+          return true;
+        })}
+        onSetIsCompleted={setItemIsCompleted}
+        onRemove={removeItem}
+      />
+    </Stack>
   );
 }
