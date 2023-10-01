@@ -2,14 +2,14 @@ import { ReactNode } from 'react';
 
 import { Box, BoxProps, Center } from 'src/shared/design-system';
 
-type Props = BoxProps & {
+export type MainSectionProps = BoxProps & {
   children: ReactNode;
 };
 
-export function MainSection({ children, ...restProps }: Props) {
+export function MainSection({ children, ...restProps }: MainSectionProps) {
   return (
-    <Center p="4" borderTop="1px" borderColor="blackAlpha.200">
-      <Box as="section" minW="30rem" {...restProps}>
+    <Center borderTop="1px" borderColor="blackAlpha.200">
+      <Box as="section" m="4" minW="30rem" {...restProps}>
         {children}
       </Box>
     </Center>

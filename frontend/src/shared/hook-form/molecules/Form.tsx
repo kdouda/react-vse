@@ -7,7 +7,7 @@ import {
   UseFormProps,
 } from 'react-hook-form';
 
-type Props<TFieldValues extends FieldValues = FieldValues> =
+export type FormProps<TFieldValues extends FieldValues = FieldValues> =
   UseFormProps<TFieldValues> & {
     children: ReactNode;
     onSubmit: SubmitHandler<TFieldValues>;
@@ -19,7 +19,7 @@ export function Form<TFieldValues extends FieldValues = FieldValues>({
   onSubmit,
   noValidate = false,
   ...rest
-}: Props<TFieldValues>) {
+}: FormProps<TFieldValues>) {
   const methods = useForm<TFieldValues>(rest);
 
   return (

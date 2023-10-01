@@ -2,16 +2,7 @@ import { useState } from 'react';
 
 import { useTodoList } from 'src/modules/todo/hooks';
 import { AddTodoListItemForm, TodoList } from 'src/modules/todo/organisms';
-import {
-  Box,
-  Button,
-  Heading,
-  Input,
-  Stack,
-  Tab,
-  TabList,
-  Tabs,
-} from 'src/shared/design-system';
+import { Heading, Stack, Tab, TabList, Tabs } from 'src/shared/design-system';
 
 const STATES = ['all', 'completed', 'not-completed'] as const;
 

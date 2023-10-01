@@ -3,7 +3,7 @@ import {
   HeadingProps as ChakraHeadingProps,
 } from '@chakra-ui/react';
 
-type Props = Omit<ChakraHeadingProps, 'as'> & {
+export type HeadingProps = Omit<ChakraHeadingProps, 'as'> & {
   as?: keyof typeof HEADING_SIZES;
 };
 
@@ -16,7 +16,7 @@ const HEADING_SIZES = {
   h6: { fontSize: 'md' },
 };
 
-export function Heading({ as = 'h1', ...rest }: Props) {
+export function Heading({ as = 'h1', ...rest }: HeadingProps) {
   const defaultStyles = HEADING_SIZES[as] ?? {};
 
   return <ChakraHeading as={as} {...defaultStyles} {...rest} />;

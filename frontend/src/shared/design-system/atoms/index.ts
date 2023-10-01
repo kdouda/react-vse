@@ -1,35 +1,67 @@
-export { AvatarPhoto } from './AvatarPhoto';
-export { Heading } from './Heading';
-export { Icon } from './Icon';
-export type { LinkProps } from './Link';
-export { Link } from './Link';
-export type { NavLinkProps } from './NavLink';
-export { NavLink } from './NavLink';
-export { Paragraph } from './Paragraph';
-export type { TransparentButtonProps } from './TransparentButton';
-export { TransparentButton } from './TransparentButton';
-export type { AlertProps, BoxProps, InputProps } from '@chakra-ui/react';
+export { AvatarPhoto, type AvatarPhotoProps } from './AvatarPhoto';
+export { BodyBackground, type BodyBackgroundProps } from './BodyBackground';
+export { Heading, type HeadingProps } from './Heading';
+export { Icon, type IconProps } from './Icon';
+export { Link, type LinkProps } from './Link';
+export { NavLink, type NavLinkProps } from './NavLink';
+export { Paragraph, type ParagraphProps } from './Paragraph';
+export {
+  TransparentButton,
+  type TransparentButtonProps,
+} from './TransparentButton';
 export {
   Alert,
   AlertDescription,
+  type AlertDescriptionProps,
   AlertIcon,
+  type AlertIconProps,
+  type AlertProps,
   AlertTitle,
+  type AlertTitleProps,
   Box,
+  type BoxProps,
   Button,
+  type ButtonProps,
   Center,
+  type CenterProps,
   Checkbox,
+  type CheckboxProps,
   Flex,
+  type FlexProps,
   FormControl,
+  type FormControlProps,
   FormErrorMessage,
+  type FormErrorMessageProps,
   FormHelperText,
+  type FormHelperTextProps,
   FormLabel,
+  type FormLabelProps,
   IconButton,
+  type IconButtonProps,
   Image,
+  type ImageProps,
   Input,
+  type InputProps,
+  Radio,
+  RadioGroup,
+  type RadioGroupProps,
+  type RadioProps,
+  Select,
+  type SelectProps,
   Spacer,
+  type SpacerProps,
   Stack,
+  StackDivider,
+  type StackDividerProps,
+  type StackProps,
+  Switch,
+  type SwitchProps,
   Tab,
   TabList,
+  type TabListProps,
+  type TabProps,
   Tabs,
+  type TabsProps,
   Textarea,
+  type TextareaProps,
 } from '@chakra-ui/react';

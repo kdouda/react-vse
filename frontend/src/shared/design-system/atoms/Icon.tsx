@@ -5,7 +5,7 @@ import {
 
 import { forwardRef, keyframes } from '../system';
 
-type Props = ChakraIconProps & {
+export type IconProps = ChakraIconProps & {
   isSpinning?: boolean;
 };
 
@@ -19,7 +19,7 @@ const spin = keyframes({
 });
 
 export const Icon = forwardRef(function Icon(
-  { isSpinning = false, ...restProps }: Props,
+  { isSpinning = false, ...restProps }: IconProps,
   ref,
 ) {
   return (

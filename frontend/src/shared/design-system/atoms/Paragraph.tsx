@@ -2,10 +2,10 @@ import { ReactNode } from 'react';
 
 import { chakra, ChakraProps } from '../system';
 
-type Props = ChakraProps & {
+export type ParagraphProps = ChakraProps & {
   children: ReactNode;
 };
 
-export function Paragraph(props: Props) {
+export function Paragraph(props: ParagraphProps) {
   return <chakra.p mb="3" {...props} />;
 }

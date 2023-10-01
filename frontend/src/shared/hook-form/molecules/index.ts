@@ -1,2 +1,2 @@
-export { Form } from './Form';
-export { FormField } from './FormField';
+export { Form, type FormProps } from './Form';
+export { FormField, type FormFieldProps } from './FormField';

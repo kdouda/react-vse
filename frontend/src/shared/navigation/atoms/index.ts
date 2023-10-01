@@ -1,4 +1,4 @@
-export { MainSection } from './MainSection';
+export { MainSection, type MainSectionProps } from './MainSection';
 export { RouterLink } from './RouterLink';
 export { RouterNavLink } from './RouterNavLink';
 export { ScrollToTop } from './ScrollToTop';

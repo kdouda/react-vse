@@ -1,10 +1,15 @@
 import { Image, ImageProps } from '@chakra-ui/react';
 
-type Props = ImageProps & {
+export type AvatarPhotoProps = ImageProps & {
   size?: string;
 };
 
-export function AvatarPhoto({ src, alt, size = '16', ...restProps }: Props) {
+export function AvatarPhoto({
+  src,
+  alt,
+  size = '16',
+  ...restProps
+}: AvatarPhotoProps) {
   return (
     <Image
       src={src}

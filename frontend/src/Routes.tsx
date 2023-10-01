@@ -11,12 +11,12 @@ export function Routes() {
   return (
     <RouterRoutes>
       <Route path={route.home()} element={<HomePage />} />
-      {PRACTICALS.map(({ id, PageComponent }) => (
+      {PRACTICALS.map(({ id, PageComponent, wrapperProps = {} }) => (
         <Route
           path={route.practical(id)}
           key={id}
           element={
-            <PageWrapper>
+            <PageWrapper {...wrapperProps}>
               <PageComponent />
             </PageWrapper>
           }
