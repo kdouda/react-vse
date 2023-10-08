@@ -35,10 +35,12 @@ export function SettingsSection<
           <Heading>{title}</Heading>
           {description && <Paragraph>{description}</Paragraph>}
         </Box>
-        <Stack flex="2" p="8" bg="white" borderRadius="md" boxShadow="base">
+        <Stack flex="2"  bg="white" borderRadius="md" boxShadow="base"  overflow="hidden">
+          <Stack p="8">
           {children}
-          <Box textAlign="right">
-            <Button type="submit">Save</Button>
+          </Stack>
+          <Box textAlign="right" p="2" bg="gray.50" >
+            <Button type="submit" bg="green.500" color="white">Save</Button>
           </Box>
         </Stack>
       </Flex>

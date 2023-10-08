@@ -5,12 +5,27 @@ import {
   Radio,
   RadioGroup,
   Select,
-  Stack,
-  Switch,
+  Stack
 } from 'src/shared/design-system';
-import { InputField, SwitchField } from 'src/shared/forms';
+import { InputField, SwitchField, TextareaField, SelectField, RadioGroupField } from 'src/shared/forms';
 
 import { SettingsSection } from '../molecules';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as zod from 'zod';
+
+const profileFormSchema = zod.object({
+  firstName: zod.string().nonempty('First name must not be empty!'),
+  lastName: zod.string().nonempty('Last name must not be empty!'),
+  username: zod.string().nonempty('User name must not be empty!'),
+  email: zod.string().nonempty('Name must not be empty!').email('E-mail must be in correct format!'),
+  about: zod.string().nonempty('Name must not be empty!').refine((val) => {
+    console.log(val);
+    return !(val.toLowerCase().indexOf('lorem') >= 0 || val.toLowerCase().indexOf('ipsum') >= 0)
+  }, { message: 'Description cannot contain the words lorem or ipsum.' }),
+  agreeToc: zod.literal<boolean>(true),
+  visibility: zod.string().nonempty('Visibility must not be empty!')
+});
 
 export function Practical03Page() {
   return (
@@ -23,6 +38,7 @@ export function Practical03Page() {
           title="Profile"
           description="This is your profile information."
           formProps={{
+            resolver: zodResolver(profileFormSchema),
             defaultValues: {
               firstName: 'John',
               lastName: 'Doe',
@@ -30,17 +46,34 @@ export function Practical03Page() {
               email: 'john@doe.com',
               about: 'Lorem ipsum',
               agreeToc: true,
+              visibility: 'public'
             },
             onSubmit: (data) => {
               alert(JSON.stringify(data, null, 2));
             },
           }}
         >
-          <Select>
+
+          <Stack spacing={2} direction={{ base: 'column', md: 'row' }}>
+            <InputField name="firstName" label="First name"></InputField>
+            
+            <InputField name="lastName" label="Last name"></InputField>
+          </Stack>
+
+          <InputField maxWidth={{ base: '100%', md: '75%' }} name="username" label="User name"></InputField>
+
+          <Stack>
+            <InputField maxWidth={{ base: '100%', md: '75%' }} name="email" label="Email address"></InputField>
+          </Stack>
+
+          <TextareaField name="about" label="Profile bio"></TextareaField>
+
+          <SelectField name="visibility">
             <option value="public">Public</option>
             <option value="friends">Only friends</option>
             <option value="private">Private</option>
-          </Select>
+          </SelectField>
+
           <SwitchField name="agreeToc">
             {' '}
             Agree to Terms and Conditions
@@ -58,15 +91,14 @@ export function Practical03Page() {
             },
           }}
         >
-          <RadioGroup>
-            <Heading as="h5">Notify me</Heading>
-            <Paragraph>When you should be notified:</Paragraph>
-            <Stack>
+          <Heading as="h5">Notify me</Heading>
+          <Paragraph>When you should be notified:</Paragraph>
+
+          <RadioGroupField name="notificationsLevel">
               <Radio value="all">Every time someone quacks</Radio>
               <Radio value="mentions">Only mentions (@username)</Radio>
               <Radio value="never">Never</Radio>
-            </Stack>
-          </RadioGroup>
+          </RadioGroupField>
         </SettingsSection>
       </Stack>
     </>
